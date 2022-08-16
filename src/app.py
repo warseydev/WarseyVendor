@@ -9,6 +9,10 @@ from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+)
 limiter = Limiter(
     app,
     key_func=get_remote_address,
