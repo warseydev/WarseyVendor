@@ -1,4 +1,4 @@
-import checkpass
+from warsey import checkpass
 import json
 import string
 import secrets
