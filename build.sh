@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Building Warsey's Vendor System."
+echo "WARSEY 2022 (R) - Building Warsey's Vendor System."
 if [ ! -d "~/warseyapps-files/warseyvendor" ]; then
     mkdir ~/warseyapps-files
     mkdir ~/warseyapps-files/warseyvendor
