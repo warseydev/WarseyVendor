@@ -165,6 +165,10 @@ def unauthorized_handler():
 def not_found(e):
     return render_template("error.html", errorcode = "429 | Too Many Requests", errormsg = "You have made too many requests in the past hour, please try again later.")
 
+app.errorhandler(500)
+def not_found(e):
+    return render_template("error.html", errorcode = "500", errormsg = "Internal Server Error, please try again later.")
+
 @app.errorhandler(404)
 def not_found(e):
   return render_template("error.html", errorcode = 404, errormsg = "The page you are looking for doesn't exists.")
