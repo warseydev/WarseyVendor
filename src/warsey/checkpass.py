@@ -5,5 +5,3 @@ def hashthis(text):
 
 def checkhash(text, hash):
     return sha256_crypt.verify(text, hash)
-
-print(hashthis("warseyadmin"))

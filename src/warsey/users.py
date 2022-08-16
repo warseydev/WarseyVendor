@@ -1,4 +1,4 @@
-from warsey import checkpass
+import checkpass
 import json
 import string
 import secrets
@@ -41,8 +41,7 @@ def userpermission_isadmin(user):
         file_data = json.load(file)
     array_length = len(file_data)
     try:
-        for i in range(array_length):
-            adminrights = file_data[user][i]["isAdmin"]
+        adminrights = file_data[user][0]["isAdmin"]
     except:
         return False
     file.close()
