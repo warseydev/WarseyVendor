@@ -1,2 +1,20 @@
 # WarseyVendor
- Warsey's Vendor System
+Warsey's Vendor System
+
+# Warning
+
+This code is in it's very early stages, do not recommend using.
+
+# Media (Images & Videos)
+
+Any media within this code is copyrighted and is not free to use, please replace it with your own if your going to fork this project!
+
+# License
+
+Copyright (C) 2022 [akatiggerx04](https://github.com/Wh1ter0sEo4).
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.
