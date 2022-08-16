@@ -9,4 +9,4 @@ if [ ! -d "$DIRECTORY" ]; then
     mkdir ~/warseyapps-files/warseyvendor/invitecodes
 fi
 docker-compose down
-docker-compose up -d
+docker-compose up --build -d
