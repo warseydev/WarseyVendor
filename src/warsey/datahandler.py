@@ -33,7 +33,7 @@ def updatedata():
                     json_file['date']
                 ])
             except KeyError:
-                print(f'Skipping {single_file}')
+                print(f'DataHandler - Skipping {single_file}')
     data.sort()
     data.insert(0, ['Vendor', 'First Name', 'Last Name', 'Email', 'Phone Number', 'Model', 'Size', 'More Info', 'Date'])
     csv_filename = f'/tmp/{str(date)}.csv'
@@ -43,4 +43,3 @@ def updatedata():
     a = pd.read_csv(csv_filename)
     a.to_html("templates/data.html", border=0)
     os.remove(csv_filename)
-    print("Updated CSV")
