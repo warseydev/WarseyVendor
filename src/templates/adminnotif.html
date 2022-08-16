@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Warsey - Admin Notification</title>
+	<link rel="icon" type="image/png" href="/static/img/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <center>
+    <img src="/static/img/warsey-sport-solutions.webp" class="logo">
+    <h1>ADMIN <span class="greentext">NOTIFICATION</span></h1>
+    <p>{{ notif }}</p>
+    <p>{{ notif2 }}</p>
+    <button class="addbutton" onclick="window.location='/root'">Ok, continue.</button>
+    <p>You are logged in as: <strong>{{ user }}</strong> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>.</p>
+    </center>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Warsey - Vendor Form</title>
+	<link rel="icon" type="image/png" href="/static/img/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="/static/css/vendorc.css">
+</head>
+<body>
+<section class="section">
+	<h1>Join The Warsey(R) 2022 World Cup Ticket Competition</h1>
+	<center><noscript>Javascript is disabled!</noscript></center>
+	<div class="form-progress">
+		<progress class="form-progress-bar" min="0" max="100" value="0" step="33" aria-labelledby="form-progress-completion"></progress>
+		<div class="form-progress-indicator one active"></div>
+		<div class="form-progress-indicator two"></div>
+		<div class="form-progress-indicator three"></div>
+		<div class="form-progress-indicator four"></div>
+		<p id="form-progress-completion" class="js-form-progress-completion sr-only" aria-live="polite">0% complete</p>
+	</div>
+	<div class="animation-container">
+		<div class="form-step js-form-step" data-step="1">
+			<p class="form-instructions"><strong>Click the continue button to progress or reset to start over.</strong><br>
+				Please fill out the fields below so we can register your customer to the Warsey<sup><small>(R)</small></sup> Qatar 2022 Competition.</p>
+				<center><p>Your are logged in as: <strong>{{ user }}</strong></p></center>
+			<form action="" name="form-step-1">
+				<div class="fieldgroup">
+					<input type="text" name="firstName" id="firstName" maxlength="16"/>
+					<label for="firstName">First name</label>
+				</div>
+				<div class="fieldgroup">
+					<input type="text" name="lastName" id="lastName" maxlength="16"/>
+					<label for="lastName">Last name</label>
+				</div>
+				<div class="fieldgroup">
+					<input type="email" name="email" id="email"/>
+					<label for="email">Email</label>
+				</div>
+				<div class="fieldgroup">
+					<input type="number" name="phonenumber" pattern="[0-9]+" id="phonenumber" maxlength="25" type="number" ondrop="return false;" onpaste="return false;"/>
+					<label for="phonenumber">Phone Number</label>
+				</div>
+				<div class="buttons">
+							<button onclick="window.location='/logout'" type="button" class="btn btn-logout js-reset">Log Out</button>
+							<button type="submit" class="btn">Continue</button>
+				</div>
+			</form>
+		</div>
+			<div class="form-step js-form-step waiting hidden" data-step="2">
+				<p class="form-instructions"><strong>T-Shirt Model</strong>
+						<br> Which Go-Series Supporter T-Shirt Model did your customer buy.</p>
+				<form action="" name="form-step-2">
+						<div class="fieldgroup">
+								<input type="text" name="model" id="model" />
+								<label for="model">Example: Go Tunisia Gold/Black T-Shirt.</label>
+						</div>
+						<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+
+								<button type="submit" class="btn">Continue</button>
+						</div>
+				</form>
+		</div>
+			<div class="form-step js-form-step waiting hidden" data-step="3">
+
+				<p class="form-instructions"><strong>T-Shirt Size & More Info.</strong>
+						<br> Please tell us your customer's T-Shirt Size. And add any additional information if necessary in Notes section bellow.</p>
+
+				<form action="" name="form-step-3">
+						<div class="fieldgroup">
+								<input type="text" name="size" id="size" maxlength="3"/>
+								<label for="size">T-Shirt Size: XS / S / M / L / XL / XXL</label>
+						</div>
+						<div class="fieldgroup">
+								<input type="text" name="moreinfo" id="moreinfo" />
+								<label for="moreinfo">Notes / Additional info.</label>
+						</div>
+						<div class="buttons">
+								<button type="button" class="btn btn-alt js-reset">Reset</button>
+
+								<button type="submit" class="btn">Continue</button>
+						</div>
+				</form>
+		</div>
+			<div class="form-step js-form-step waiting hidden" data-step="4">
+				<p class="form-instructions"><strong>Click the "Get Invite Code" button to proceed.</strong>
+						<br> By pressing "Get Invite Code", you and your customer consent to us using the previous data you entered.</p>
+				<form action="" name="form-step-4">
+						<div class="buttons">
+							<button onclick="SubmitInfo();" type="button" class="btn">Get Invite Code</button>
+						</div>
+				</form>
+		</div>
+	</div>
+</section>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="/static/js/sweetalert.min.js"></script>
+  <script src="/static/js/vendorc.js"></script>
+  <script src="/static/js/vendorsubmit.js"></script>
+</body>
+</html>

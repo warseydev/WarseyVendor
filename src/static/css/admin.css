@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+body {
+    color: rgb(245, 245, 245);
+    background-color: rgb(43, 43, 43);
+    font-family: 'Ubuntu', sans-serif;
+}
+.logo {
+    width: 10%;
+    margin-top: 20px;
+    margin-bottom: -15px;
+}
+.greentext {
+    background-color: rgb(19, 105, 37);
+}
+th, td {
+  width: 150px;
+  text-align: center;
+  border: 1px solid #1F9639;
+  padding: 5px;
+}
+::-moz-selection {
+    color: rgb(243, 243, 243);
+    background: #0e581e;
+}
+  
+::selection {
+    color: rgb(243, 243, 243);
+    background: #0e581e;
+}
+
+.databuttons {
+    background-color: rgb(66, 66, 66);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.addbutton {
+    background-color: rgb(132, 247, 66);
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.deletebutton {
+    background-color: rgb(247, 66, 66);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+}
+.desc {
+    color: rgb(206, 206, 206);
+    font-size: 14px;
+    margin-top: -10px;
+    font-style: italic;
+}
+
+input {
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    border: none;
+}

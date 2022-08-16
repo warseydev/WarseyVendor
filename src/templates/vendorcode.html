@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Warsey - Invite Code</title>
+	<link rel="icon" type="image/png" href="/static/img/favicon.png">
+    <script src="/static/js/qrcode.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="/static/css/vendorc.css">
+</head>
+<body>
+<section class="section">
+    <center>
+    <h1>Warsey(R) 2022 World Cup Ticket Competition</h1>
+    <div id="qrcode"></div>
+	<h2>{{ code }}</h2>
+    <p>Your are logged in as: <strong>{{ user }}</strong></p>
+    <p>This invite code can be used to take part in the Warsey 2022 (R) World Cup Competition, please note that this code may only be used by Go Supporter T-Shirt owners.</p>
+    <button class="btn" onclick="window.location='/create';">Ok, continue.</button>
+    <p style="display: none;" id="code">{{ code }}</p>
+    <script type="text/javascript">
+        var code = document.getElementById("code").textContent;
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: code,
+            width: 128,
+            height: 128,
+            colorDark : "#1F9639",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        </script>
+    </center>
+</section>
+</body>
+</html>
