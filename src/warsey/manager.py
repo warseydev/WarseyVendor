@@ -11,6 +11,9 @@ def userexists(user):
     with open('appdata/users.json', 'r') as file:
         jsondb = json.load(file)
     if user in jsondb:
+        if jsondb[user] == "deleted":
+            file.close()
+            return False
         file.close()
         return True
     else:

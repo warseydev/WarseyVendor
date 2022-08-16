@@ -6,6 +6,7 @@ import flask_login
 import json, os
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -14,6 +15,7 @@ limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["25000 per day", "2000 per hour"]
 )
+csrf = CSRFProtect(app)
 app.secret_key = os.environ['VENDOR_SECRET']
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
@@ -49,7 +51,7 @@ def login():
     if manager.userexists(username) and manager.userpass(username, request.form['password']):
         user = User()
         user.id = username
-        flask_login.login_user(user)
+        flask_login.login_user(user, remember=False)
         if manager.isadmin(flask_login.current_user.id):
             return redirect(url_for('admindash'))
         return redirect(url_for('vendorcreate'))
@@ -80,11 +82,15 @@ def generatecode():
 @app.route('/create')
 @flask_login.login_required
 def vendorcreate():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     return render_template("vendorcreate.html", user = flask_login.current_user.id)
 
 @app.route('/codeinfo/<code>')
 @flask_login.login_required
 def vendorcode(code):
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     return render_template("vendorcode.html", code = code, user = flask_login.current_user.id)
 
 @app.route("/logout")
@@ -102,6 +108,8 @@ def vendor():
 @app.route("/root")
 @flask_login.login_required
 def admindash():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     if not manager.isadmin(flask_login.current_user.id):
         return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
     return render_template("adminpanel.html", user = flask_login.current_user.id)
@@ -110,6 +118,8 @@ def admindash():
 @limiter.limit("180 per hour")
 @flask_login.login_required
 def adminrefreshdata():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     if not manager.isadmin(flask_login.current_user.id):
         return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
     try:
@@ -122,6 +132,8 @@ def adminrefreshdata():
 @limiter.limit("70 per hour")
 @flask_login.login_required
 def newuser():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     if not manager.isadmin(flask_login.current_user.id):
         return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
     username = request.form['username']
@@ -141,6 +153,8 @@ def newuser():
 @limiter.limit("70 per hour")
 @flask_login.login_required
 def deluser():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
     if not manager.isadmin(flask_login.current_user.id):
         return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
     username = request.form['username']
@@ -166,7 +180,7 @@ def not_found(e):
     return render_template("error.html", errorcode = "429 | Too Many Requests", errormsg = "You have made too many requests in the past hour, please try again later.")
 
 app.errorhandler(500)
-def not_found(e):
+def error_500():
     return render_template("error.html", errorcode = "500", errormsg = "Internal Server Error, please try again later.")
 
 @app.errorhandler(404)

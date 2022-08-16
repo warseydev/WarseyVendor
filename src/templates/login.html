@@ -19,6 +19,7 @@
             <use xlink:href="#icon-user"></use>
           </svg><span class="hidden">Username</span></label>
         <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+        {{ form.csrf_token }}
       </div>
       <div class="form__field">
         <label for="login__password"><svg class="icon">
