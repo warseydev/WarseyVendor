@@ -20,7 +20,6 @@
         <p>Create A New User</p>
         <form method="POST" action="/root/newuser">
             <input type="text" maxlength="16" name="username" id="username" placeholder="username">
-            {{ form.csrf_token }}
             <button value="submit" class="addbutton">Create</button>
         </form>
     </div>
@@ -28,7 +27,6 @@
         <p>Delete A User</p>
         <form method="POST" action="/root/deluser">
             <input type="text" maxlength="16" name="username" id="username" placeholder="username">
-            {{ form.csrf_token }}
             <button value="submit" class="deletebutton">Delete</button>
         </form>
     </div>

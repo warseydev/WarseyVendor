@@ -6,7 +6,6 @@ import flask_login
 import json, os
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -15,7 +14,6 @@ limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["25000 per day", "2000 per hour"]
 )
-csrf = CSRFProtect(app)
 app.secret_key = os.environ['VENDOR_SECRET']
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
