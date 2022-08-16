@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  warsey-vendor:
+    restart: always
+    build: .
+    container_name: warsey-vendor
+    ports:
+      - "6001:6001"
+    volumes:
+      - ~/warseyapps-files/warseyvendor:/usr/share/warseyvendor/appdata/:z
+    env_file: 
+    - .env.container
