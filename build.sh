@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "WARSEY 2022 (R) - Building Warsey's Vendor System."
-if [ ! -d "~/warseyapps-files/warseyvendor" ]; then
+DIRECTORY=~/warseyapps-files/warseyvendor
+if [ ! -d "$DIRECTORY" ]; then
     mkdir ~/warseyapps-files
     mkdir ~/warseyapps-files/warseyvendor
     mv src/appdata/* ~/warseyapps-files/warseyvendor
