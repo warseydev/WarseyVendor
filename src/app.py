@@ -46,6 +46,8 @@ def request_loader(request):
 @limiter.limit("18 per hour")
 def login():
     if flask_login.current_user.is_authenticated:
+        if manager.isadmin(flask_login.current_user.id):
+            return redirect(url_for('admindash'))
         return redirect(url_for('vendorcreate'))
     if request.method == 'GET':
         return render_template("login.html", error = 'hidden')
