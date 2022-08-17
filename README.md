@@ -14,6 +14,9 @@ cd WarseyVendor
 
 bash build.sh
 ```
+# Defaults
+
+Default Port: 6001
 
 # Media (Images & Videos)
 
