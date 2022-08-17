@@ -7,11 +7,13 @@ This code is in it's very early stages, [i](https://github.com/Wh1ter0sEo4) do n
 
 # How to build
 
-`git clone https://github.com/warseydev/WarseyVendor`
+```sh
+git clone https://github.com/warseydev/WarseyVendor`
 
-`cd WarseyVendor`
+cd WarseyVendor
 
-`bash build.sh`
+bash build.sh
+```
 
 # Media (Images & Videos)
 
