@@ -3,7 +3,15 @@ Warsey's Vendor System
 
 # Warning
 
-This code is in it's very early stages, do not recommend using.
+This code is in it's very early stages, [i](https://github.com/Wh1ter0sEo4) do not recommend using.
+
+# How to build
+
+`git clone https://github.com/warseydev/WarseyVendor`
+
+`cd WarseyVendor`
+
+`bash build.sh`
 
 # Media (Images & Videos)
 
