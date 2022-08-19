@@ -26,3 +26,9 @@ function Show(id) {
     else
         e.style.display = 'block';
 }
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    if (window.location.pathname == '/root') {window.location='/mroot';}
+}else{
+    if (window.location.pathname == '/mroot') {window.location='/root';}
+}

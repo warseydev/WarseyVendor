@@ -330,3 +330,9 @@ progress::-webkit-progress-value {
   border: 2px solid #ca4242;
   cursor: pointer;
 }
+
+/* Warsey CSS */
+
+.logo {
+  width: 32%;
+}

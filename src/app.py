@@ -9,10 +9,6 @@ from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_SAMESITE='Lax',
-)
 limiter = Limiter(
     app,
     key_func=get_remote_address,
@@ -116,7 +112,34 @@ def admindash():
         return redirect(url_for("logout"))
     if not manager.isadmin(flask_login.current_user.id):
         return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
+    return render_template("dashboard.html", user = flask_login.current_user.id)
+
+@app.route("/mroot")
+@flask_login.login_required
+def mobiledash():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
+    if not manager.isadmin(flask_login.current_user.id):
+        return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
     return render_template("adminpanel.html", user = flask_login.current_user.id)
+
+@app.route("/root/users")
+@flask_login.login_required
+def userdash():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
+    if not manager.isadmin(flask_login.current_user.id):
+        return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
+    return render_template("adduser.html", user = flask_login.current_user.id)
+
+@app.route("/root/data")
+@flask_login.login_required
+def datadash():
+    if not manager.userexists(flask_login.current_user.id):
+        return redirect(url_for("logout"))
+    if not manager.isadmin(flask_login.current_user.id):
+        return render_template("error.html", errorcode = 403, errormsg = "Not enough privileges.")
+    return render_template("datapanel.html", user = flask_login.current_user.id)
 
 @app.route("/root/refreshdata", methods=['POST'])
 @limiter.limit("180 per hour")

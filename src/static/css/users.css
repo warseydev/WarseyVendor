@@ -1,0 +1,39 @@
+.desc {
+    font-style: italic;
+    color: rgb(160, 160, 160);
+}
+
+.addbutton {
+    background-color: rgb(132, 247, 66);
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+}
+
+.deletebutton {
+    background-color: rgb(247, 66, 66);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    border: none;
+    color: #000;
+}
+
+.adduser {
+    margin-bottom: 40px;
+}
+
+.topdesc {
+    margin-bottom: 40px;
+}

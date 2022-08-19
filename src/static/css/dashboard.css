@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color: rgb(49, 49, 49);
+  color: #fff;
+}
+
+/* Toggle Styles */
+
+#viewport {
+  padding-left: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+/* Sidebar Styles */
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: rgb(43, 43, 43);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#sidebar header {
+  background-color: rgb(29, 29, 29);
+  font-size: 20px;
+  line-height: 52px;
+  text-align: center;
+}
+
+#sidebar header a {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar header a:hover {
+  color: #fff;
+}
+
+#sidebar .nav{
+    visibility: visible;
+}
+
+#sidebar .nav a{
+  background: none;
+  border-bottom: 1px solid #1F9639;
+  color: #CFD8DC;
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+#sidebar .nav a:hover{
+  background: none;
+  color: #ECEFF1;
+}
+
+#sidebar .nav a i{
+  margin-right: 16px;
+}
+
+/* Warsey CSS */
+
+.logo {
+    width: 25%;
+}
+@media (max-width: 1100px) {
+    .logo {
+        width: 30%;
+    }
+}
+
+.locked {
+    cursor: not-allowed;
+}
+
+.warseynav {
+    background-color: rgb(29, 29, 29);
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+
+#content {
+    background-color: rgb(49, 49, 49);
+}
+
+.greentext {
+    background-color: rgb(19, 105, 37);
+}

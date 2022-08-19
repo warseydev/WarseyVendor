@@ -1,0 +1,25 @@
+th, td {
+    width: 150px;
+    text-align: center;
+    border: 1px solid #1F9639;
+    padding: 5px;
+  }
+  ::-moz-selection {
+      color: rgb(243, 243, 243);
+      background: #0e581e;
+  }
+    
+  ::selection {
+      color: rgb(243, 243, 243);
+      background: #0e581e;
+  }
+  
+  .databuttons {
+      background-color: rgb(66, 66, 66);
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      padding: 10px 10px 10px 10px;
+      margin-bottom: 10px;
+}
