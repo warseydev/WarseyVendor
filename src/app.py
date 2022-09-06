@@ -4,16 +4,9 @@ from warsey import manager
 from waitress import serve
 import flask_login
 import json, os
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["12000000 per day", "50000 per hour"]
-)
 app.secret_key = os.environ['VENDOR_SECRET']
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
@@ -39,7 +32,6 @@ def request_loader(request):
     return user
 
 @app.route('/', methods=['GET', 'POST'])
-@limiter.limit("18 per hour")
 def login():
     if flask_login.current_user.is_authenticated:
         if manager.isadmin(flask_login.current_user.id):
@@ -58,7 +50,6 @@ def login():
     return render_template("login.html", error = 'error')
 
 @app.route('/getcode', methods=['POST'])
-@limiter.limit("8000 per hour")
 @flask_login.login_required
 def generatecode():
     data = request.form.to_dict(flat=False)
@@ -142,7 +133,6 @@ def datadash():
     return render_template("datapanel.html", user = flask_login.current_user.id)
 
 @app.route("/root/refreshdata", methods=['POST'])
-@limiter.limit("18000 per hour")
 @flask_login.login_required
 def adminrefreshdata():
     if not manager.userexists(flask_login.current_user.id):
@@ -156,7 +146,6 @@ def adminrefreshdata():
     return "Data refreshed succesfully."
 
 @app.route('/root/newuser', methods=['POST'])
-@limiter.limit("7000 per hour")
 @flask_login.login_required
 def newuser():
     if not manager.userexists(flask_login.current_user.id):
@@ -177,7 +166,6 @@ def newuser():
     return render_template("adminnotif.html", notif = msg, notif2 = msg2, user = flask_login.current_user.id)
 
 @app.route('/root/deluser', methods=['POST'])
-@limiter.limit("7000 per hour")
 @flask_login.login_required
 def deluser():
     if not manager.userexists(flask_login.current_user.id):
