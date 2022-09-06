@@ -24,7 +24,7 @@ Any media within this code is copyrighted and is not free to use, please replace
 
 # License
 
-Copyright (C) 2022 [akatiggerx04](https://github.com/Wh1ter0sEo4).
+Copyright (C) 2022 [akatiggerx04](https://github.com/akatiggerx04).
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
